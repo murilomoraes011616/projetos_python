@@ -1,3 +1,3 @@
-a = int(input("qual seu número?"))
-b = 3
-print(a + b)
+nome = input("qual seu nome?")
+num_nome = len(nome)
+print(len(nome))
