@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+
 # projetos_python
 # 📚 Estudos em Python
 
@@ -8,10 +9,6 @@ Este repositório contém meus estudos e projetos práticos em Python, com foco 
 
 Consolidar meus conhecimentos em Python através da prática, desenvolvendo projetos reais e explorando ferramentas utilizadas no mercado.
 =======
-opo# projetos_python
-estudos de ptython
- Olá, este repositorio será usado para publicar meus estudos e projetos em python
->>>>>>> Stashed changes
 
 ## 🧠 Conteúdos abordados
 
