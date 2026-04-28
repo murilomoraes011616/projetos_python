@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 print("calculo de kpi 2026")
     
 nome = input("qual seu nome? ")
