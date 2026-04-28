@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 print("calculo de kpi 2026")
     
 nome = input("qual seu nome? ")
@@ -6,3 +7,7 @@ bonus = float(input("qual a porcentagem do bonus? "))
 
 calculo = 1000 + salario * bonus
 print(f"murilo, seu KPI é {calculo},")
+=======
+teste = input("qual seu nome? ")
+print(teste)
+>>>>>>> Stashed changes
