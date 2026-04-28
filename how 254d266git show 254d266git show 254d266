@@ -1,0 +1,18 @@
+[33mcommit 254d266d1e0a20465bbe920a82e2018ddcdf094f[m
+Author: Murilo Moraes <murilo.moraes011616@gmail.com>
+Date:   Tue Apr 28 12:30:40 2026 -0300
+
+    teste contribuicao
+
+[1mdiff --git a/Bootcamp-jornada-de-dados/aula2/ex_2.py b/Bootcamp-jornada-de-dados/aula2/ex_2.py[m
+[1mindex 84d4e6c..f73fc26 100644[m
+[1m--- a/Bootcamp-jornada-de-dados/aula2/ex_2.py[m
+[1m+++ b/Bootcamp-jornada-de-dados/aula2/ex_2.py[m
+[36m@@ -3,4 +3,4 @@[m
+ a = int(input("digite um número: "))[m
+ b = int(input("digite outro número: "))[m
+ c = a + b[m
+[31m-print(f"a soma dos números é: {c}.")[m
+\ No newline at end of file[m
+[32m+[m[32mprint(f"a soma dos números é: {c}..")[m
+\ No newline at end of file[m
