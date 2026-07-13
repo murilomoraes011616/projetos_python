@@ -10,3 +10,4 @@ data_de_hoje = date.today()   # pega a funçãoi de hoje da biblioteca datetime 
 abrir_planilha.range('A1').value = data_de_hoje #encontra esse valor da celula A1 e modifica ele.
 qual_valor_ATUALIZADO_de_uma_celula = abrir_planilha.range('A1').value #variavel que equivale ao novo valorr.
 print(qual_valor_ATUALIZADO_de_uma_celula) #printa esse novo valor.
+wb.api.RefreshAll()
