@@ -3,7 +3,7 @@ from datetime import date # importa sobemente a função date da biblioteca date
 import time # importa biblioteca para poder dar o comando de esperar 10 segundos 
 
 
-wb = xw.Book(r'C:\Users\murilo.oliveira\OneDrive - Greentech\planilhas1.xlsx') #criadno o wb, objeto da classe book.
+wb = xw.Book(r'C:\Users\murilo.oliveira\OneDrive - Greentech\planilhas1.xlsx') #criando o wb, objeto da classe book.
 abrir_planilha = wb.sheets('verde') #cria uma variavel, que dentro do objeto tem o metodo sheets, que abre a planilha que estiver em seu paramtro ().
 qual_valor_de_uma_celula = abrir_planilha.range('A1').value #encontra o valor da celula A1.
 print(qual_valor_de_uma_celula) #printa esse valor.
@@ -12,5 +12,7 @@ data_de_hoje = date.today()   # pega a função de hoje da biblioteca datetime e
 abrir_planilha.range('A1').value = data_de_hoje #encontra esse valor da celula A1 e modifica ele.
 qual_valor_ATUALIZADO_de_uma_celula = abrir_planilha.range('A1').value #variavel que equivale ao novo valorr.
 print(qual_valor_ATUALIZADO_de_uma_celula) #printa esse novo valor.
-wb.api.RefreshAll()  
-time.sleep(10) #espera 10 segundos no codigo apenas para poder para garantir a atualização dos dados 
+wb.api.RefreshAll()  ## 
+time.sleep(10) #espera 10 segundos no codigo apenas para poder para garantir a atualização dos dados
+
+abrir_planilha_da_tabela = wb.sheets('tabela dinamica') #cria uma variavel, que dentro do objeto tem o metodo sheets, que abre a planilha que estiver em seu paramtro ().
