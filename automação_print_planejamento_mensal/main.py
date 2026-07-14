@@ -15,4 +15,14 @@ print(qual_valor_ATUALIZADO_de_uma_celula) #printa esse novo valor.
 wb.api.RefreshAll()  ## 
 time.sleep(10) #espera 10 segundos no codigo apenas para poder para garantir a atualização dos dados
 
-abrir_planilha_da_tabela = wb.sheets('tabela dinamica') #cria uma variavel, que dentro do objeto tem o metodo sheets, que abre a planilha que estiver em seu paramtro ().
+##ETAPA DE TIRAR O PRINT DA IMAGEM DA TABELA 
+
+aba = wb.sheets('tabela dinamica')   # 1. só pega a aba específica, não gera nada ainda
+
+aba.api.PageSetup.PrintArea = 'A3:F5'            # 2. só CONFIGURA, não gera nada ainda
+aba.api.PageSetup.Orientation = 2                 # 3. só CONFIGURA, não gera nada ainda
+aba.api.PageSetup.Zoom = False                    # 4. só CONFIGURA, não gera nada ainda
+aba.api.PageSetup.FitToPagesWide = 1              # 5. só CONFIGURA, não gera nada ainda
+aba.api.PageSetup.FitToPagesTall = 1              # 6. só CONFIGURA, não gera nada ainda
+
+aba.api.ExportAsFixedFormat(0, r'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\lugar dos pdf para autoamação\tabela.pdf')  # 7. ESSA é a linha que EXECUTA e cria o arquivo
