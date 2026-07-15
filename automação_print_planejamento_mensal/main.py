@@ -17,7 +17,7 @@ time.sleep(10) #espera 10 segundos no codigo apenas para poder para garantir a a
 
 ##ETAPA DE TIRAR O PRINT DA IMAGEM DA TABELA 
 
-aba = wb.sheets('tabela dinamica')   # 1. só pega a aba específica, não gera nada ainda
+aba = wb.sheets('tabela dinamica')   # 1. trasforma
 
 aba.api.PageSetup.PrintArea = 'A3:F5'            # 2. só CONFIGURA, não gera nada ainda
 aba.api.PageSetup.Orientation = 2                 # 3. só CONFIGURA, não gera nada ainda
