@@ -16,30 +16,44 @@ with sync_playwright() as p:
     try:
         pagina.goto("https://web.whatsapp.com")
         pagina.wait_for_load_state("networkidle")
+        pagina.wait_for_timeout(10000)   # espera 10s extra pra tudo carregar de vez
 
         caixa_de_pesquisa = pagina.get_by_role("textbox", name="Pesquisar ou começar uma nova conversa")
         caixa_de_pesquisa.wait_for()
         caixa_de_pesquisa.click()
         caixa_de_pesquisa.fill(nome_do_contato)
-        pagina.wait_for_timeout(1000)
 
-        primeiro_resultado = pagina.get_by_test_id("list-item-0")
-        primeiro_resultado.wait_for()
-        primeiro_resultado.click()
+        print("Nome digitado, esperando 10 segundos antes de entrar na conversa...")
+        pagina.wait_for_timeout(10000)   # a pausa principal que você pediu
 
-        # Confirma que a conversa certa realmente abriu
-        cabecalho_conversa = pagina.get_by_role("heading", name=nome_do_contato)
-        cabecalho_conversa.wait_for()
+        pagina.keyboard.press("Enter")
+
+        print("Enter pressionado, esperando mais 10 segundos pra conversa carregar...")
+        pagina.wait_for_timeout(10000)   # espera a conversa "assentar" de vez
+
+        pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_apos_entrar_conversa.png')
+        print("Print de debug salvo: debug_apos_entrar_conversa.png")
 
         botao_anexar = pagina.get_by_role("button", name="Anexar")
         botao_anexar.click()
+        pagina.wait_for_timeout(3000)
+
+        pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_menu_anexar.png')
+        print("Print de debug salvo: debug_menu_anexar.png")
 
         with pagina.expect_file_chooser() as info_seletor_arquivo:
             opcao_documento = pagina.get_by_role("menuitem", name="Documento")
+            opcao_documento.wait_for()
             opcao_documento.click()
 
         seletor_arquivo = info_seletor_arquivo.value
         seletor_arquivo.set_files(caminho_do_pdf)
+
+        print("Arquivo anexado, esperando 5 segundos pro preview carregar...")
+        pagina.wait_for_timeout(5000)
+
+        pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_preview_pdf.png')
+        print("Print de debug salvo: debug_preview_pdf.png")
 
         botao_enviar = pagina.get_by_role("button", name="Enviar 1 item selecionado")
         botao_enviar.wait_for()
@@ -49,6 +63,11 @@ with sync_playwright() as p:
 
     except Exception as erro:
         print(f"Deu erro: {erro}")
+        try:
+            pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_erro.png')
+            print("Print do erro salvo: debug_erro.png")
+        except Exception:
+            print("Não consegui tirar o print de debug (navegador já estava fechado).")
         input("Deu erro, mas o navegador vai ficar aberto pra você investigar. Pressione Enter para fechar...")
 
     finally:
