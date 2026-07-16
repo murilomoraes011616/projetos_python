@@ -4,7 +4,7 @@ from datetime import date   # importa sobemente a função date da biblioteca da
 import time # importa biblioteca para poder dar o comando de esperar 10 segundos 
 
 
-app = xw.App(visible=True)   # cria a instância do Excel; visible=False roda em segundo plano
+app = xw.App(visible=False)   # cria a instância do Excel; visible=False roda em segundo plano
 app.display_alerts = False   # suprime qualquer alerta/pop-up do Excel, incluindo esse
 wb = app.books.open(
     r'U:\AREA_DE_DADOS\Indicadores\Gestao de Contratos\FILIAL SP\KPI - Faturamento\Mapa de Faturamento\Mapa_Faturamento_SAPHANA_julho.26 (diário).xlsm',
@@ -69,7 +69,7 @@ caminho_do_pdf= fr'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\
 with sync_playwright() as p:
     navegador = p.chromium.launch_persistent_context(
         caminho_da_sessao,
-        headless=False,
+        headless=True,
         channel="chrome"
     )
     pagina = navegador.new_page()
