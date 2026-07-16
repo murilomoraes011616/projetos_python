@@ -112,7 +112,6 @@ with sync_playwright() as p:
         botao_enviar.wait_for()
         botao_enviar.click()
 
-        input("Confira se a mensagem foi enviada, e pressione Enter para fechar...")
 
     except Exception as erro:
         print(f"Deu erro: {erro}")
