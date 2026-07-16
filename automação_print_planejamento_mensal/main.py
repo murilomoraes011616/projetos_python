@@ -1,6 +1,6 @@
 ################
 import xlwings as xw # importa a biblioteca para manipular o excel .
-from datetime import date # importa sobemente a função date da biblioteca datetime de pega a data, biblioteca do python ja.
+from datetime import date   # importa sobemente a função date da biblioteca datetime de pega a data, biblioteca do python ja.
 import time # importa biblioteca para poder dar o comando de esperar 10 segundos 
 
 
@@ -63,7 +63,7 @@ aba.api.ExportAsFixedFormat(0, fr'C:\Users\murilo.oliveira\OneDrive - Greentech\
 from playwright.sync_api import sync_playwright
 
 caminho_da_sessao = r'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\pastas para coisas da  automações\sessao_whatsapp'
-nome_do_contato = "Murilo , da MITRA Assessoria IA"
+nome_do_contato = "Sarah Gestora"
 caminho_do_pdf= fr'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\pastas para coisas da  automações\lugar dos pdf para autoamação\Mapa de Faturamento {hoje_formatado}.pdf'
 
 with sync_playwright() as p:
