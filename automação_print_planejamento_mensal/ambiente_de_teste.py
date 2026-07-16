@@ -122,5 +122,16 @@ with sync_playwright() as p:
         botao_enviar.click()
         time.sleep(25)
 
+
+    except Exception as erro:
+        print(f"Deu erro: {erro}")
+        try:
+            pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_erro.png')
+            print("Print do erro salvo: debug_erro.png")
+        except Exception:
+            print("Não consegui tirar o print de debug (navegador já estava fechado).")
+        input("Deu erro, mas o navegador vai ficar aberto pra você investigar. Pressione Enter para fechar...")    
+    
+
     finally:
         navegador.close()
