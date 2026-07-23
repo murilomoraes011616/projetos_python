@@ -21,7 +21,7 @@ abrir_planilha.range('X41').value = data_de_hoje #encontra esse valor da celula 
 qual_valor_ATUALIZADO_de_uma_celula = abrir_planilha.range('X41').value #variavel que equivale ao novo valorr.
 print(f"data atualizada: {qual_valor_ATUALIZADO_de_uma_celula}")
 wb.api.RefreshAll()  ##atualiza o arquivo todo pra puxar com as novas datas 
-time.sleep(10) #espera 10 segundos no codigo apenas para poder para garantir a atualização dos dados
+time.sleep(25) #espera 10 segundos no codigo apenas para poder para garantir a atualização dos dados
 
 ##ETAPA DE TIRAR O PRINT DA IMAGEM DA TABELA 
 
@@ -62,11 +62,9 @@ aba.api.ExportAsFixedFormat(0, fr'C:\Users\murilo.oliveira\OneDrive - Greentech\
  
 from playwright.sync_api import sync_playwright
 
-caminho_da_sessao = r':\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\sessao_whatsapp'
+caminho_da_sessao = r'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\sessao_whatsapp'
 nome_do_contato = "Sarah Gestora"
 caminho_do_pdf= fr'C:\Users\murilo.oliveira\OneDrive - Greentech\Perfil\Desktop\pastas para coisas da  automações\arquivos da automação para o paulo chequeti\lugar dos pdf para autoamação\Mapa de Faturamento {hoje_formatado}.pdf'
-print("varaiveis calculadas")
-
 
 with sync_playwright() as p:
     navegador = p.chromium.launch_persistent_context(
@@ -75,33 +73,25 @@ with sync_playwright() as p:
         channel="chrome"
     )
     pagina = navegador.new_page()
-    pagina.set_default_timeout(80000)
-    print("abrindo navegador")
+    pagina.set_default_timeout(60000)
 
     try:
         pagina.goto("https://web.whatsapp.com")
         pagina.wait_for_load_state("networkidle")
         pagina.wait_for_timeout(10000)   # espera 10s extra pra tudo carregar de vez
-        print("esprando 20 segundos para carregar tudo da pagina")
 
         caixa_de_pesquisa = pagina.get_by_role("textbox", name="Pesquisar ou começar uma nova conversa")
-        print("esperando carregar a caixa de pesquisa")
         caixa_de_pesquisa.wait_for()
-        print("wait_for")
         caixa_de_pesquisa.click()
-        print("pesquisa nome do contato")
         caixa_de_pesquisa.fill(nome_do_contato)
-        print("pesquisando o noem do contato")
 
         print("Nome digitado, esperando 10 segundos antes de entrar na conversa...")
-        pagina.wait_for_timeout(50000)   # a pausa principal que você pediu
-        print("esperando enter carregar para apertar")
-
+        pagina.wait_for_timeout(20000)   # a pausa principal que você pediu
 
         pagina.keyboard.press("Enter")
 
         print("Enter pressionado, esperando mais 10 segundos pra conversa carregar...")
-        pagina.wait_for_timeout(20000)   # espera a conversa "assentar" de vez
+        pagina.wait_for_timeout(10000)   # espera a conversa "assentar" de vez
 
         pagina.screenshot(path=r'C:\Users\murilo.oliveira\Desktop\debug_apos_entrar_conversa.png')
         print("Print de debug salvo: debug_apos_entrar_conversa.png")
